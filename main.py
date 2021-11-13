@@ -29,11 +29,12 @@ def cifra(alfabeto_inglese, modulo, chiave, parola ):
     dizionario_alfabeto_inglese_cifrato = genera_cifrario(alfabeto_inglese, modulo, chiave)
     parola_cifrata = [dizionario_alfabeto_inglese_cifrato[lettera.upper()] for lettera in parola.upper()]
     counter = 0
+    str_parola_cifrata = "".join(parola_cifrata)
     for lettera in parola.upper():
         indice_c = (alfabeto_inglese[lettera] + chiave) % modulo
-        print("Lettera: "+lettera + " "+"Numero: "+ str(alfabeto_inglese[lettera]) + " " + "Congruo a: " + str( indice_c ) + " " +str() + "Lettera: "+ parola_cifrata[counter] + " " + "(" + str(alfabeto_inglese[lettera]) + "+" + str(chiave) + " modulo " + str(modulo) + ")")
+        stringa_messaggio = f"Lettera originale: {lettera} - Numero corrispondente: {alfabeto_inglese[lettera]} - Congruo: {indice_c} - Lettera corrispondente: {parola_cifrata[counter]} - ({alfabeto_inglese[lettera]} + {chiave} modulo {modulo})"
+        print(stringa_messaggio)
         counter = counter+1
-    str_parola_cifrata = "".join(parola_cifrata)
     return  str_parola_cifrata
 
 
